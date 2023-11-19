@@ -4,6 +4,7 @@ const notesSchema = new Schema({
   id: {
     type: String,
     required: true,
+    unique: true,
   },
   title: {
     type: String,
@@ -14,12 +15,16 @@ const notesSchema = new Schema({
     type: String,
     required: true,
   },
-  createdAt: {
+  timeStamp: {
     type: Date,
     required: true,
   },
   category: {
     type: Array,
+  },
+  username: {
+    type: String,
+    required: true,
   },
 });
 

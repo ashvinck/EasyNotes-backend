@@ -12,7 +12,8 @@ const userRegisterationValidation = () => {
       .notEmpty()
       .withMessage('Username is required')
       .isLength({ min: 3 })
-      .withMessage('Username must be at lease 3 characters long'),
+      .withMessage('Username must be at lease 3 characters long')
+      .customSanitizer((value) => value.toLowerCase()),
     body('password').trim().notEmpty().withMessage('Password is required'),
   ];
 };

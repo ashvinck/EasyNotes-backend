@@ -3,8 +3,9 @@ import cors from 'cors';
 import { config } from 'dotenv';
 import cookieParser from 'cookie-parser';
 import connectMongoDB from './config/db/mongodb.js';
-import authRouter from './routes/user.auth.routes.js';
 import createHttpError from 'http-errors';
+import authRouter from './routes/user.auth.routes.js';
+import notesRouter from './routes/notes.routes.js';
 config();
 
 const app = express();
@@ -22,6 +23,8 @@ app.use(cookieParser());
 //Routes
 //Auth routes
 app.use('/auth', authRouter);
+// Note routes
+app.use('/notes', notesRouter);
 
 // Home API endpoint
 app.get('/', function (request, response) {
