@@ -12,7 +12,7 @@ export const authValidation = (request, response, next) => {
     const accessToken = authHeader.split(' ')[1];
 
     const verify = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
-    console.log(verify);
+    // console.log(verify);
     next();
   } catch (error) {
     console.log(error);

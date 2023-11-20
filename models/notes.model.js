@@ -20,7 +20,7 @@ const notesSchema = new Schema({
     required: true,
   },
   category: {
-    type: Array,
+    type: String,
   },
   username: {
     type: String,

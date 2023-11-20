@@ -140,12 +140,13 @@ const loginUser = async (req, res, next) => {
 };
 
 const refreshAccessToken = async (req, res, next) => {
-  const incomingRefreshToken =
-    req.cookies.refreshToken || req.body.refreshToken;
-
-  if (!incomingRefreshToken)
-    throw createError.Unauthorized('Unauthorized request');
   try {
+    const incomingRefreshToken =
+      req.cookies.refreshToken || req.body.refreshToken;
+
+    if (!incomingRefreshToken)
+      throw createError.Unauthorized('Unauthorized request');
+
     const decodedToken = jwt.verify(
       incomingRefreshToken,
       process.env.REFRESH_TOKEN_SECRET
