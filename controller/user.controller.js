@@ -151,6 +151,7 @@ const refreshAccessToken = async (req, res, next) => {
       incomingRefreshToken,
       process.env.REFRESH_TOKEN_SECRET
     );
+
     const user = await User.findById(decodedToken?._id);
     if (!user) throw createError.Unauthorized('Invalid refresh token');
 
@@ -245,6 +246,7 @@ const resetForgottenPassword = async (req, res, next) => {
     next(error);
   }
 };
+
 export {
   registerUser,
   loginUser,
